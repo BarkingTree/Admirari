@@ -8,17 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		220BCBF12A669D83001B20DC /* AdmirariApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220BCBF02A669D83001B20DC /* AdmirariApp.swift */; };
-		220BCBF32A669D83001B20DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220BCBF22A669D83001B20DC /* ContentView.swift */; };
 		220BCBF52A669D85001B20DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 220BCBF42A669D85001B20DC /* Assets.xcassets */; };
 		220BCBF82A669D85001B20DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 220BCBF72A669D85001B20DC /* Preview Assets.xcassets */; };
+		220BCBFF2A669DD8001B20DC /* MapVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220BCBFE2A669DD8001B20DC /* MapVM.swift */; };
+		220BCC032A66A065001B20DC /* ShowNearbyBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220BCC022A66A065001B20DC /* ShowNearbyBtn.swift */; };
+		220BCC062A66A113001B20DC /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220BCC052A66A113001B20DC /* Location.swift */; };
+		220BCC092A66A2CB001B20DC /* LocationMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220BCC082A66A2CB001B20DC /* LocationMarker.swift */; };
+		220BCC0B2A66A58A001B20DC /* LocationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220BCC0A2A66A58A001B20DC /* LocationDetail.swift */; };
+		220BCC0D2A66A894001B20DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220BCC0C2A66A894001B20DC /* ContentView.swift */; };
+		220BCC0F2A66B867001B20DC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220BCC0E2A66B867001B20DC /* Result.swift */; };
+		220BCC112A6947EC001B20DC /* LocationListBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220BCC102A6947EC001B20DC /* LocationListBtn.swift */; };
+		220BCC142A6B26B3001B20DC /* WikipediaLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220BCC132A6B26B3001B20DC /* WikipediaLocation.swift */; };
+		220BCC162A6BC87A001B20DC /* LocationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220BCC152A6BC87A001B20DC /* LocationList.swift */; };
+		229602D42A6C33CD00905D45 /* CurrentLocationBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229602D32A6C33CD00905D45 /* CurrentLocationBtn.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		220BCBED2A669D83001B20DC /* Admirari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Admirari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		220BCBF02A669D83001B20DC /* AdmirariApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmirariApp.swift; sourceTree = "<group>"; };
-		220BCBF22A669D83001B20DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		220BCBF42A669D85001B20DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		220BCBF72A669D85001B20DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		220BCBFE2A669DD8001B20DC /* MapVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVM.swift; sourceTree = "<group>"; };
+		220BCC022A66A065001B20DC /* ShowNearbyBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowNearbyBtn.swift; sourceTree = "<group>"; };
+		220BCC052A66A113001B20DC /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		220BCC082A66A2CB001B20DC /* LocationMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMarker.swift; sourceTree = "<group>"; };
+		220BCC0A2A66A58A001B20DC /* LocationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetail.swift; sourceTree = "<group>"; };
+		220BCC0C2A66A894001B20DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		220BCC0E2A66B867001B20DC /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		220BCC102A6947EC001B20DC /* LocationListBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListBtn.swift; sourceTree = "<group>"; };
+		220BCC122A69C689001B20DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		220BCC132A6B26B3001B20DC /* WikipediaLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaLocation.swift; sourceTree = "<group>"; };
+		220BCC152A6BC87A001B20DC /* LocationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationList.swift; sourceTree = "<group>"; };
+		229602D32A6C33CD00905D45 /* CurrentLocationBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationBtn.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +72,11 @@
 		220BCBEF2A669D83001B20DC /* Admirari */ = {
 			isa = PBXGroup;
 			children = (
+				220BCC122A69C689001B20DC /* Info.plist */,
 				220BCBF02A669D83001B20DC /* AdmirariApp.swift */,
-				220BCBF22A669D83001B20DC /* ContentView.swift */,
+				220BCC072A66A12B001B20DC /* Structs */,
+				220BCC002A669DE0001B20DC /* View Managers */,
+				220BCC012A669DF5001B20DC /* Views */,
 				220BCBF42A669D85001B20DC /* Assets.xcassets */,
 				220BCBF62A669D85001B20DC /* Preview Content */,
 			);
@@ -65,6 +89,46 @@
 				220BCBF72A669D85001B20DC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		220BCC002A669DE0001B20DC /* View Managers */ = {
+			isa = PBXGroup;
+			children = (
+				220BCBFE2A669DD8001B20DC /* MapVM.swift */,
+			);
+			path = "View Managers";
+			sourceTree = "<group>";
+		};
+		220BCC012A669DF5001B20DC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				220BCC0A2A66A58A001B20DC /* LocationDetail.swift */,
+				220BCC152A6BC87A001B20DC /* LocationList.swift */,
+				220BCC0C2A66A894001B20DC /* ContentView.swift */,
+				220BCC042A66A0DB001B20DC /* Sub Views */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		220BCC042A66A0DB001B20DC /* Sub Views */ = {
+			isa = PBXGroup;
+			children = (
+				220BCC022A66A065001B20DC /* ShowNearbyBtn.swift */,
+				220BCC102A6947EC001B20DC /* LocationListBtn.swift */,
+				229602D32A6C33CD00905D45 /* CurrentLocationBtn.swift */,
+				220BCC082A66A2CB001B20DC /* LocationMarker.swift */,
+			);
+			path = "Sub Views";
+			sourceTree = "<group>";
+		};
+		220BCC072A66A12B001B20DC /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				220BCC052A66A113001B20DC /* Location.swift */,
+				220BCC132A6B26B3001B20DC /* WikipediaLocation.swift */,
+				220BCC0E2A66B867001B20DC /* Result.swift */,
+			);
+			path = Structs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +201,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				220BCBF32A669D83001B20DC /* ContentView.swift in Sources */,
+				220BCC062A66A113001B20DC /* Location.swift in Sources */,
+				220BCC092A66A2CB001B20DC /* LocationMarker.swift in Sources */,
+				220BCC162A6BC87A001B20DC /* LocationList.swift in Sources */,
+				220BCC0F2A66B867001B20DC /* Result.swift in Sources */,
+				220BCC0D2A66A894001B20DC /* ContentView.swift in Sources */,
+				220BCC112A6947EC001B20DC /* LocationListBtn.swift in Sources */,
+				220BCBFF2A669DD8001B20DC /* MapVM.swift in Sources */,
+				229602D42A6C33CD00905D45 /* CurrentLocationBtn.swift in Sources */,
+				220BCC0B2A66A58A001B20DC /* LocationDetail.swift in Sources */,
+				220BCC032A66A065001B20DC /* ShowNearbyBtn.swift in Sources */,
+				220BCC142A6B26B3001B20DC /* WikipediaLocation.swift in Sources */,
 				220BCBF12A669D83001B20DC /* AdmirariApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +344,8 @@
 				DEVELOPMENT_TEAM = BX9KT275WM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Admirari/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Admirari needs to access your location to show features nearby";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +375,8 @@
 				DEVELOPMENT_TEAM = BX9KT275WM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Admirari/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Admirari needs to access your location to show features nearby";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
