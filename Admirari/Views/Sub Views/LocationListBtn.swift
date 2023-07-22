@@ -13,6 +13,8 @@ struct LocationListBtn: View {
     var body: some View {
         Button(action: {
             mapVM.showLocationList.toggle()
+            print(mapVM.region.center)
+            print(mapVM.spanDistanceRadius())
         }, label: {
             Image(systemName: "list.bullet")
         })

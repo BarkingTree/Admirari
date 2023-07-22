@@ -30,8 +30,8 @@ class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
           longitude:-143.16013602
         ),
         span: MKCoordinateSpan(
-          latitudeDelta: 0.05,
-          longitudeDelta: 0.05
+          latitudeDelta: 10,
+          longitudeDelta: 10
        )
     )
     
@@ -71,24 +71,21 @@ class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
            }
        }
     
-    // Called when new location data is available. Note that the MKCoordinate region is the region that is currently being displayed by the Map view. It does not relate to the location currently being displayed by the map and does not relate to current location.
-    // To do relate longitude delta and MKCoordinate span related to wikipedia api query regarding area to display for.
+    // Called when new location data is available. Note that the MKCoordinate region is the region that is currently being displayed by the Map view. It relates to the location currently being displayed by the map and does not relate to user's current location.
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         locations.last.map {
             region = MKCoordinateRegion(
                 center: CLLocationCoordinate2D(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude),
-                span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+                span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
             )
+            tracking = .follow
         }
     }
     
     // Called when unable to access location 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
     print("error: \(error.localizedDescription)")
-    }
-    
-    func returnToUserLocation() {
-
     }
     
     // MARK: Fetch from Wikipedia API
@@ -124,7 +121,7 @@ class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     // Convert lattitude and longitude into metres for wikipedia API query
-    private func spanDistanceRadius() -> Int {
+    func spanDistanceRadius() -> Int {
         var radius: Double = 0
         let span = region.span
         let center = region.center
@@ -160,7 +157,6 @@ class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
             // Convert items to array of results that are nearby
             // Avoid publishing off background thread
             DispatchQueue.main.async {
-                self.wikiLocations = []
                 self.wikiLocations = items.query.geosearch.map { WikipediaLocation(id: $0.pageid, name: $0.title, lat: $0.lat, lon: $0.lon, distance: $0.dist) }
                 self.wikipediaLoadingState = .loaded
                 print(self.wikiLocations)

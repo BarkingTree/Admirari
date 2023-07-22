@@ -36,10 +36,10 @@
 		220BCC0C2A66A894001B20DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		220BCC0E2A66B867001B20DC /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		220BCC102A6947EC001B20DC /* LocationListBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListBtn.swift; sourceTree = "<group>"; };
-		220BCC122A69C689001B20DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		220BCC132A6B26B3001B20DC /* WikipediaLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaLocation.swift; sourceTree = "<group>"; };
 		220BCC152A6BC87A001B20DC /* LocationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationList.swift; sourceTree = "<group>"; };
 		229602D32A6C33CD00905D45 /* CurrentLocationBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationBtn.swift; sourceTree = "<group>"; };
+		229602D52A6C463700905D45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +72,7 @@
 		220BCBEF2A669D83001B20DC /* Admirari */ = {
 			isa = PBXGroup;
 			children = (
-				220BCC122A69C689001B20DC /* Info.plist */,
+				229602D52A6C463700905D45 /* Info.plist */,
 				220BCBF02A669D83001B20DC /* AdmirariApp.swift */,
 				220BCC072A66A12B001B20DC /* Structs */,
 				220BCC002A669DE0001B20DC /* View Managers */,
@@ -345,6 +345,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Admirari/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Admirari needs to access your location to show features nearby";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -376,6 +377,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Admirari/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Admirari needs to access your location to show features nearby";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

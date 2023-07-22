@@ -54,6 +54,7 @@ struct ContentView: View {
                 }
         }.sheet(isPresented: $mapVM.showDetails) {
             LocationDetail(mapVM: mapVM, wikipediaLocation: mapVM.selecctedWikiLocation)
+                .presentationDetents([.fraction(0.3)])
         }.sheet(isPresented: $mapVM.showLocationList) {
             LocationList(mapVM: mapVM)
         }

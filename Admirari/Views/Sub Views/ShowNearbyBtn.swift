@@ -16,7 +16,7 @@ struct ShowNearbyBtn: View {
                 await mapVM.fetchNearbyPlaces()
             }
         } label: {
-            Image(systemName: "plus")
+            Image(systemName: "eye")
         }
         .padding()
         .background(.black.opacity(mapVM.wikipediaStatus ? 0.25: 0.75))
