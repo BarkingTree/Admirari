@@ -9,22 +9,25 @@ import SwiftUI
 
 struct ShowNearbyBtn: View {
     @StateObject var mapVM: MapVM
+    
     var body: some View {
         Spacer()
         Button {
+            // Button disabled whilst waiting API to response
+            mapVM.wikipediaLoadingState = .loading
             Task {
                 await mapVM.fetchNearbyPlaces()
+                print(mapVM.wikiLocations)
             }
         } label: {
-            Image(systemName: "eye")
+            Image(systemName: "magnifyingglass")
         }
+        .frame(width: 30, height: 30)
         .padding()
-        .background(.black.opacity(mapVM.wikipediaStatus ? 0.25: 0.75))
+        .background(.black.opacity(mapVM.wikipediaLocationsBtnDisabled ? 0.25: 0.75))
         .foregroundColor(.white)
-        .font(.title)
         .clipShape(Circle())
-        
-        
+        .font(.title)
         
         
     }

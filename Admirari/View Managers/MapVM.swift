@@ -42,7 +42,7 @@ class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     
     override init() {
-            wikipediaLoadingState = .loading
+            wikipediaLoadingState = .loaded
             super.init()
             manager.delegate = self
         }
@@ -94,10 +94,48 @@ class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     @Published var wikipediaLoadingState: WikipediaLoadingState
     @Published var showLocationList: Bool = false
+    
     @Published var wikiLocations: [WikipediaLocation] = []
     @Published var selecctedWikiLocation: WikipediaLocation = WikipediaLocation(id: 1, name: "Test", lat: 1, lon: 1, distance: 1)
-    var wikipediaStatus: Bool {
+    
+    private var wikipediaStatusDistanceDisabled: Bool {
         return spanDistanceCheck()
+    }
+    
+    private var wikipediaStatusLoadingDisabled: Bool {
+        switch wikipediaLoadingState {
+        case .loaded:
+            return false
+        case .failed:
+            return false
+        case .loading:
+            return true
+        }
+    }
+    
+    var wikipediaLocationsBtnDisabled: Bool {
+        var value = false
+        if wikipediaStatusDistanceDisabled == false && wikipediaStatusLoadingDisabled == false {
+            value = false
+        }
+        if wikipediaStatusDistanceDisabled == true && wikipediaStatusLoadingDisabled == false {
+            value = true
+        }
+        if wikipediaStatusDistanceDisabled == false && wikipediaStatusLoadingDisabled == true {
+            value = true
+        }
+        if wikipediaStatusDistanceDisabled == true && wikipediaStatusLoadingDisabled == true {
+            value = true
+        }
+        return value
+    }
+    
+    var locationListDisabled: Bool {
+        if wikiLocations.count == 0 {
+            return true
+        } else {
+            return false
+        }
     }
     
     // Convert lattitude and longitude into metres. Do not display if > 5000 metres
@@ -112,7 +150,7 @@ class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
         
         let metersInLatitude = loc1.distance(from: loc2)
         let metersInLongitude = loc3.distance(from: loc4)
-        if metersInLatitude > 2500 || metersInLongitude > 2500 {
+        if metersInLatitude > 5000 || metersInLongitude > 5000 {
             disabled = true
         } else {
             disabled = false
@@ -132,8 +170,7 @@ class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
         
         let metersInLatitude = loc1.distance(from: loc2)
         let metersInLongitude = loc3.distance(from: loc4)
-        print("Meters in Lattitude: \(metersInLatitude)")
-        print("Meters in Longitude: \(metersInLongitude)")
+        
         if metersInLatitude > metersInLongitude {
             radius = metersInLatitude / 2.0
         } else if metersInLongitude > metersInLatitude {
@@ -144,23 +181,26 @@ class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     
     func fetchNearbyPlaces() async {
+       
         let urlString = "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=&list=geosearch&titles=Wikimedia%20Foundation&formatversion=2&gscoord=\(region.center.latitude)%7C\(region.center.longitude)&gsradius=\(spanDistanceRadius())&gslimit=1000"
-            print(urlString)
+          
         guard let url = URL(string: urlString) else {
             print("Bad URL: \(urlString)")
             return
         }
         
         do {
+           
             let (data, _) = try await URLSession.shared.data(from: url)
             let items = try JSONDecoder().decode(Result.self, from: data)
             // Convert items to array of results that are nearby
             // Avoid publishing off background thread
             DispatchQueue.main.async {
                 self.wikiLocations = items.query.geosearch.map { WikipediaLocation(id: $0.pageid, name: $0.title, lat: $0.lat, lon: $0.lon, distance: $0.dist) }
+                self.wikiLocations.sort {
+                    $0.distance < $1.distance
+                }
                 self.wikipediaLoadingState = .loaded
-                print(self.wikiLocations)
-                print("Displaying \(self.wikiLocations.count)")
             }
             
         } catch {

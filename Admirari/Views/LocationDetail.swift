@@ -11,13 +11,16 @@ struct LocationDetail: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var mapVM: MapVM
     var wikipediaLocation: WikipediaLocation
+    var distance: String {
+        return String(format: "%.0f", wikipediaLocation.distance)
+    }
     
     var body: some View {
         VStack {
-            Text(wikipediaLocation.name)
-            Text("\(wikipediaLocation.coordinates.latitude) | \(wikipediaLocation.coordinates.longitude)")
-            Text("\(wikipediaLocation.id)")
-            Link("Web Link", destination: wikipediaLocation.url)
+            Link(wikipediaLocation.name, destination: wikipediaLocation.url).font(.title).padding().multilineTextAlignment(.center)
+            
+            Text("Latitude: \(wikipediaLocation.coordinates.latitude) | Longitude: \(wikipediaLocation.coordinates.longitude)").padding().multilineTextAlignment(.center)
+            Text("Distance: \(distance)m")
         }
     }
 }

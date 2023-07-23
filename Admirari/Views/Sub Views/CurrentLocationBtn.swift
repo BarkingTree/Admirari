@@ -16,6 +16,7 @@ struct CurrentLocationBtn: View {
         }, label: {
             Image(systemName: "location")
         })
+        .frame(width: 30, height: 30)
         .padding()
         .background(.black.opacity(mapVM.locationButtonDisabled ? 0.25: 0.75))
         .foregroundColor(.white)

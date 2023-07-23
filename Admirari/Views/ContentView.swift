@@ -15,6 +15,8 @@ struct ContentView: View {
         ZStack {
             switch mapVM.authorizationStatus {
             case .authorizedWhenInUse:
+                // Marker
+               
                 // Display Map
                 Map(
                     coordinateRegion: $mapVM.region,
@@ -27,16 +29,32 @@ struct ContentView: View {
                         LocationMarker(mapVM: mapVM, location: location)
                     }
                 }.ignoresSafeArea()
-               
+                
+              
+                
+                    switch mapVM.locationButtonDisabled {
+                    case true:
+                        EmptyView()
+                    case false:
+                        
+                    Image(systemName: "magnifyingglass")
+                   .ignoresSafeArea()
+                }
+                    
+                
             case .restricted, .denied:
                 // Link to settings
                 VStack {
-                    Text("Please enable location sharing")
-                    Link("Application Settings", destination: URL(string: UIApplication.openSettingsURLString)!)
+                    Text("Please allow access to your location so that nearby articles can be displayed").multilineTextAlignment(.center).padding()
+                    Link("Application Settings", destination: URL(string: UIApplication.openSettingsURLString)!).padding()
                 }
-            case .notDetermined:        // Authorization not determined yet.
-                Text("Finding your location...")
-                ProgressView()
+            case .notDetermined:
+                // Authorization not determined yet.
+                VStack {
+                    Text("Finding your location...")
+                    ProgressView()
+                }
+                
             default:
                 ProgressView()
             }
@@ -49,12 +67,14 @@ struct ContentView: View {
                     }
                     HStack {
                         Spacer()
-                        ShowNearbyBtn(mapVM: mapVM).disabled(mapVM.wikipediaStatus)
-                        LocationListBtn(mapVM: mapVM)
-                }
+                        ShowNearbyBtn(mapVM: mapVM).disabled(mapVM.wikipediaLocationsBtnDisabled)
+                        LocationListBtn(mapVM: mapVM).disabled(mapVM.locationButtonDisabled)
+                }.padding(.bottom, 20)
         }.sheet(isPresented: $mapVM.showDetails) {
             LocationDetail(mapVM: mapVM, wikipediaLocation: mapVM.selecctedWikiLocation)
-                .presentationDetents([.fraction(0.3)])
+                .presentationDetents([.fraction(0.4)])
+                
+                
         }.sheet(isPresented: $mapVM.showLocationList) {
             LocationList(mapVM: mapVM)
         }

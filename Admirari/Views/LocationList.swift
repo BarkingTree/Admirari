@@ -9,13 +9,20 @@ import SwiftUI
 
 struct LocationList: View {
     @StateObject var mapVM: MapVM
+   
     var body: some View {
-        Form {
-        ForEach(mapVM.wikiLocations) { location in
-           
-                Text(location.name)
-            }
+        NavigationView {
+            Form {
+                ForEach(mapVM.wikiLocations) { location in
+                    HStack {
+                        Link(location.name, destination: location.url)
+                        Spacer()
+                        Text("\(String(format: "%.0f", location.distance))m")
+                    }
+                }
+            }.navigationTitle("Nearby Locations")
         }
+        
     }
 }
 

@@ -13,9 +13,11 @@ struct LocationMarker: View {
     var body: some View {
         
         VStack {
-           Circle()
-               .foregroundColor(.blue)
-               .frame(width: 20, height: 20)
+          Image(systemName: "w.circle")
+                .foregroundColor(.blue)
+                .frame(width: 30, height: 30)
+                .background(.white)
+                .clipShape(Circle())
                
                    
         }.onTapGesture {
