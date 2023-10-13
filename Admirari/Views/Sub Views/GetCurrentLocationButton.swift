@@ -7,18 +7,20 @@
 
 import SwiftUI
 import CoreLocationUI
+import MapKit
 
-struct CurrentLocationBtn: View {
+struct GetCurrentLocationButton: View {
 @StateObject var mapVM: MapVM
     var body: some View {
         Button(action: {
-            mapVM.tracking = .follow
+            guard let region = mapVM.userLocation else { return }
+            mapVM.position = .region(region)
         }, label: {
             Image(systemName: "location")
         })
         .frame(width: 30, height: 30)
         .padding()
-        .background(.black.opacity(mapVM.locationButtonDisabled ? 0.25: 0.75))
+        .background(.black.opacity(mapVM.getCurrentLocationButtonState ? 0.25: 0.75))
         .foregroundColor(.white)
         .font(.title)
         .clipShape(Circle())

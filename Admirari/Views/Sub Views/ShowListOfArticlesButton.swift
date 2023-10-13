@@ -8,18 +8,18 @@
 import SwiftUI
 import CoreLocationUI
 
-struct LocationListBtn: View {
+struct ShowListOfArticlesButton: View {
 @StateObject var mapVM: MapVM
     var body: some View {
         Button(action: {
-            mapVM.showLocationList.toggle()
+            mapVM.showListOfArticles.toggle()
            
         }, label: {
             Image(systemName: "list.bullet")
         })
         .frame(width: 30, height: 30)
         .padding()
-        .background(.black.opacity(mapVM.locationListDisabled ? 0.25 : 0.75))
+        .background(.black.opacity(mapVM.listOfArticlesButtonState ? 0.25 : 0.75))
         .foregroundColor(.white)
         .font(.title)
         .clipShape(Circle())
