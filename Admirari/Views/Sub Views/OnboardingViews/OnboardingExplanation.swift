@@ -15,6 +15,7 @@ struct OnboardingExplanation: View {
                 Spacer()
                 VStack(alignment: .leading) {
                     Text("Embrace").font(.title2).italic().bold().padding(.vertical, 10)
+                    
                     Text("Explore").font(.title2).italic().bold().padding(.vertical, 10)
                     Text("Discover").font(.title2).italic().bold().padding(.vertical, 10)
                 }

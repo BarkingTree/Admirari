@@ -7,22 +7,21 @@
 
 import SwiftUI
 
-struct LocationMarker: View {
+struct ArticleMarker: View {
     var mapVM: MapVM
     var location: WikipediaLocation
     var body: some View {
         
         VStack {
-          Image(systemName: "w.circle")
-                .foregroundColor(.blue)
-                .frame(width: 30, height: 30)
+       Image(systemName: "w.circle")
+                .foregroundColor(.black)
+                .padding(2)
                 .background(.white)
                 .clipShape(Circle())
-               
                    
         }.onTapGesture {
             mapVM.selecctedWikiLocation = location
-            mapVM.showDetails.toggle()
+            mapVM.showArticleDetails.toggle()
         }
     }
 }

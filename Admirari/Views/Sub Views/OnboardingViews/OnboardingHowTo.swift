@@ -12,7 +12,7 @@ struct OnboardingHowTo: View {
     var body: some View {
         VStack(alignment: .leading) {
             Spacer()
-            HStack {
+            HStack(spacing: 10.0) {
                 
                 Image(systemName: "location")
                 .frame(width: 30, height: 30)
@@ -22,12 +22,12 @@ struct OnboardingHowTo: View {
                 .font(.title)
                 .clipShape(Circle())
                 
-                Spacer()
-                Text("Current location").font(.title3)
+                
+                Text("Current location").font(.title3).multilineTextAlignment(.leading)
                 Spacer()
                 
             }
-            HStack {
+            HStack(spacing: 10.0) {
             
             Image(systemName: "magnifyingglass")
             .frame(width: 30, height: 30)
@@ -36,12 +36,17 @@ struct OnboardingHowTo: View {
             .foregroundColor(.white)
             .font(.title)
             .clipShape(Circle())
-                Spacer()
-                Text("Search for Wikipedia articles nearby").font(.title3)
+               
+                VStack(alignment: .leading) {
+                    Text("View nearby wikipedia articles").font(.title3).multilineTextAlignment(.leading)
+                    
+                }
+                
                 Spacer()
                 
             }
-            HStack {
+            
+            HStack(spacing: 10.0) {
                 
                 Image(systemName: "list.bullet")
                 .frame(width: 30, height: 30)
@@ -50,13 +55,14 @@ struct OnboardingHowTo: View {
                 .foregroundColor(.white)
                 .font(.title)
                 .clipShape(Circle())
-                Spacer()
-                Text("View a list of nearby Wikipedia articles").font(.title3)
+               
+                Text("List of nearby articles").font(.title3).multilineTextAlignment(.leading)
                 Spacer()
                 
             }
             
         Spacer()
+            Text("Maximum search radius 5000m. Search radius will alter automatically depending on zoom level. Up to 200 articles can be displayed at once. If more than 200 articles are present in the searched area only the closest will be displayed.").font(.caption)
         }.padding()
         
     }

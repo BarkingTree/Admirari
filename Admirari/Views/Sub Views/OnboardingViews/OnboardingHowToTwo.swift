@@ -11,47 +11,37 @@ struct OnboardingHowToTwo: View {
     @StateObject var mapVM: MapVM = MapVM()
     var body: some View {
         VStack(alignment: .leading) {
-          
             Spacer()
-            HStack {
-                
-                Image(systemName: "location")
-                .frame(width: 30, height: 30)
-                .padding()
-                .background(.black.opacity(0.25))
-                .foregroundColor(.white)
-                .font(.title)
-                .clipShape(Circle())
-                Spacer()
-                Text("Already showing current location").font(.title3)
-                Spacer()
-                
-            }
-            HStack {
             
-            Image(systemName: "eye")
+            HStack(spacing: 30.0) {
+            
+            Image(systemName: "magnifyingglass")
             .frame(width: 30, height: 30)
             .padding()
-            .background(.black.opacity(0.25))
+            .background(.black.opacity(0.75))
             .foregroundColor(.white)
             .font(.title)
             .clipShape(Circle())
-                Spacer()
-                Text("Zoom in to enable search").font(.title3)
+               
+                VStack(spacing: 20.0) {
+                    Text("Maximum search radius 5000m").font(.title3).multilineTextAlignment(.leading)
+                    Text("A maximum of 200 articles can be displayed at once").font(.title3).multilineTextAlignment(.leading)
+                }
                 Spacer()
                 
             }
-            HStack {
+            
+            HStack(spacing: 30.0) {
                 
                 Image(systemName: "list.bullet")
                 .frame(width: 30, height: 30)
                 .padding()
-                .background(.black.opacity(0.25))
+                .background(.black.opacity(0.75))
                 .foregroundColor(.white)
                 .font(.title)
                 .clipShape(Circle())
-                Spacer()
-                Text("No list of articles available").font(.title3)
+               
+                Text("View a list of nearby Wikipedia articles").font(.title3).multilineTextAlignment(.leading)
                 Spacer()
                 
             }
